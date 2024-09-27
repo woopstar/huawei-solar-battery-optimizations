@@ -1,0 +1,219 @@
+#####################################
+# Package: HSBO Power Consumption Average
+#####################################
+
+utility_meter:
+  house_power_hourly:
+    source: sensor.hsbo_house_consumption_power_sensor
+    cycle: hourly
+    name: "HSBO Hourly Power Consumption"
+    unique_id: "hsbo_house_power_hourly"
+
+template:
+  - sensor:
+      - name: "HSBO House Consumption power"
+        unique_id: "hsbo_house_consumption_power_sensor"
+        unit_of_measurement: "W"
+        device_class: power
+        icon: "mdi:flash"
+        state: "{{ states(states('input_text.hsbo_house_consumption_power')) | float(0) }}"
+
+      - name: "HSBO Power Consumption 6-7"
+        unique_id: "hsbo_power_consumption_6_7"
+        unit_of_measurement: "W"
+        device_class: power
+        icon: "mdi:flash"
+        state: >
+          {{ states(states('input_text.hsbo_house_power_hourly')) if now().hour == 6 else 'unknown' }}
+        availability: "{{ now().hour == 6 }}"
+
+      - name: "HSBO Power Consumption 7-8"
+        unique_id: "hsbo_power_consumption_7_8"
+        unit_of_measurement: "W"
+        device_class: power
+        icon: "mdi:flash"
+        state: >
+          {{ states(states('input_text.hsbo_house_power_hourly')) if now().hour == 7 else 'unknown' }}
+        availability: "{{ now().hour == 7 }}"
+
+      - name: "HSBO Power Consumption 8-9"
+        unique_id: "hsbo_power_consumption_8_9"
+        unit_of_measurement: "W"
+        device_class: power
+        icon: "mdi:flash"
+        state: >
+          {{ states(states('input_text.hsbo_house_power_hourly')) if now().hour == 8 else 'unknown' }}
+        availability: "{{ now().hour == 8 }}"
+
+      - name: "HSBO Power Consumption 9-10"
+        unique_id: "hsbo_power_consumption_9_10"
+        unit_of_measurement: "W"
+        device_class: power
+        icon: "mdi:flash"
+        state: >
+          {{ states(states('input_text.hsbo_house_power_hourly')) if now().hour == 9 else 'unknown' }}
+        availability: "{{ now().hour == 9 }}"
+
+      - name: "HSBO Power Consumption 10-11"
+        unique_id: "hsbo_power_consumption_10_11"
+        unit_of_measurement: "W"
+        device_class: power
+        icon: "mdi:flash"
+        state: >
+          {{ states(states('input_text.hsbo_house_power_hourly')) if now().hour == 10 else 'unknown' }}
+        availability: "{{ now().hour == 10 }}"
+
+      - name: "HSBO Power Consumption 11-12"
+        unique_id: "hsbo_power_consumption_11_12"
+        unit_of_measurement: "W"
+        device_class: power
+        icon: "mdi:flash"
+        state: >
+          {{ states(states('input_text.hsbo_house_power_hourly')) if now().hour == 11 else 'unknown' }}
+        availability: "{{ now().hour == 11 }}"
+
+      - name: "HSBO Power Consumption 12-13"
+        unique_id: "hsbo_power_consumption_12_13"
+        unit_of_measurement: "W"
+        device_class: power
+        icon: "mdi:flash"
+        state: >
+          {{ states(states('input_text.hsbo_house_power_hourly')) if now().hour == 12 else 'unknown' }}
+        availability: "{{ now().hour == 12 }}"
+
+      - name: "HSBO Power Consumption 13-14"
+        unique_id: "hsbo_power_consumption_13_14"
+        unit_of_measurement: "W"
+        device_class: power
+        icon: "mdi:flash"
+        state: >
+          {{ states(states('input_text.hsbo_house_power_hourly')) if now().hour == 13 else 'unknown' }}
+        availability: "{{ now().hour == 13 }}"
+
+      - name: "HSBO Power Consumption 14-15"
+        unique_id: "hsbo_power_consumption_14_15"
+        unit_of_measurement: "W"
+        device_class: power
+        icon: "mdi:flash"
+        state: >
+          {{ states(states('input_text.hsbo_house_power_hourly')) if now().hour == 14 else 'unknown' }}
+        availability: "{{ now().hour == 14 }}"
+
+      - name: "HSBO Power Consumption 15-16"
+        unique_id: "hsbo_power_consumption_15_16"
+        unit_of_measurement: "W"
+        device_class: power
+        icon: "mdi:flash"
+        state: >
+          {{ states(states('input_text.hsbo_house_power_hourly')) if now().hour == 15 else 'unknown' }}
+        availability: "{{ now().hour == 15 }}"
+
+      - name: "HSBO Power Consumption 16-17"
+        unique_id: "hsbo_power_consumption_16_17"
+        unit_of_measurement: "W"
+        device_class: power
+        icon: "mdi:flash"
+        state: >
+          {{ states(states('input_text.hsbo_house_power_hourly')) if now().hour == 16 else 'unknown' }}
+        availability: "{{ now().hour == 16 }}"
+
+# Statistics: Calculate the average for each time interval, with configurable period
+sensor:
+  - platform: statistics
+    name: "HSBO Average Power 6-7"
+    unique_id: "hsbo_average_power_6_7"
+    entity_id: sensor.hsbo_power_consumption_6_7
+    state_characteristic: mean
+    sampling_size: 3600  # Samlingsvindue for 3600 sekunder (1 time)
+    max_age:
+      days: 14
+
+  - platform: statistics
+    name: "HSBO Average Power 7-8"
+    unique_id: "hsbo_average_power_7_8"
+    entity_id: sensor.hsbo_power_consumption_7_8
+    state_characteristic: mean
+    sampling_size: 3600
+    max_age:
+      days: 14
+
+  - platform: statistics
+    name: "HSBO Average Power 8-9"
+    unique_id: "hsbo_average_power_8_9"
+    entity_id: sensor.hsbo_power_consumption_8_9
+    state_characteristic: mean
+    sampling_size: 3600
+    max_age:
+      days: 14
+
+  - platform: statistics
+    name: "HSBO Average Power 9-10"
+    unique_id: "hsbo_average_power_9_10"
+    entity_id: sensor.hsbo_power_consumption_9_10
+    state_characteristic: mean
+    sampling_size: 3600
+    max_age:
+      days: 14
+
+  - platform: statistics
+    name: "HSBO Average Power 10-11"
+    unique_id: "hsbo_average_power_10_11"
+    entity_id: sensor.hsbo_power_consumption_10_11
+    state_characteristic: mean
+    sampling_size: 3600
+    max_age:
+      days: 14
+
+  - platform: statistics
+    name: "HSBO Average Power 11-12"
+    unique_id: "hsbo_average_power_11_12"
+    entity_id: sensor.hsbo_power_consumption_11_12
+    state_characteristic: mean
+    sampling_size: 3600
+    max_age:
+      days: 14
+
+  - platform: statistics
+    name: "HSBO Average Power 12-13"
+    unique_id: "hsbo_average_power_12_13"
+    entity_id: sensor.hsbo_power_consumption_12_13
+    state_characteristic: mean
+    sampling_size: 3600
+    max_age:
+      days: 14
+
+  - platform: statistics
+    name: "HSBO Average Power 13-14"
+    unique_id: "hsbo_average_power_13_14"
+    entity_id: sensor.hsbo_power_consumption_13_14
+    state_characteristic: mean
+    sampling_size: 3600
+    max_age:
+      days: 14
+
+  - platform: statistics
+    name: "HSBO Average Power 14-15"
+    unique_id: "hsbo_average_power_14_15"
+    entity_id: sensor.hsbo_power_consumption_14_15
+    state_characteristic: mean
+    sampling_size: 3600
+    max_age:
+      days: 14
+
+  - platform: statistics
+    name: "HSBO Average Power 15-16"
+    unique_id: "hsbo_average_power_15_16"
+    entity_id: sensor.hsbo_power_consumption_15_16
+    state_characteristic: mean
+    sampling_size: 3600
+    max_age:
+      days: 14
+
+  - platform: statistics
+    name: "HSBO Average Power 16-17"
+    unique_id: "hsbo_average_power_16_17"
+    entity_id: sensor.hsbo_power_consumption_16_17
+    state_characteristic: mean
+    sampling_size: 3600
+    max_age:
+      days: 14
