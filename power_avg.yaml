@@ -92,7 +92,7 @@ template:
 
       - name: "HSBO House Energy 6-7 Active"
         unique_id: "hsbo_house_energy_template_6_7"
-        unit_of_measurement: "kWh"
+        unit_of_measurement: "W"
         state: >
           {% if now().hour == 6 %}
             {{ states('sensor.hsbo_house_consumption_power') }}
@@ -102,7 +102,7 @@ template:
 
       - name: "HSBO House Energy 7-8 Active"
         unique_id: "hsbo_house_energy_template_7_8"
-        unit_of_measurement: "kWh"
+        unit_of_measurement: "W"
         state: >
           {% if now().hour == 7 %}
             {{ states('sensor.hsbo_house_consumption_power') }}
@@ -112,7 +112,7 @@ template:
 
       - name: "HSBO House Energy 8-9 Active"
         unique_id: "hsbo_house_energy_template_8_9"
-        unit_of_measurement: "kWh"
+        unit_of_measurement: "W"
         state: >
           {% if now().hour == 8 %}
             {{ states('sensor.hsbo_house_consumption_power') }}
@@ -122,7 +122,7 @@ template:
 
       - name: "HSBO House Energy 9-10 Active"
         unique_id: "hsbo_house_energy_template_9_10"
-        unit_of_measurement: "kWh"
+        unit_of_measurement: "W"
         state: >
           {% if now().hour == 9 %}
             {{ states('sensor.hsbo_house_consumption_power') }}
@@ -132,7 +132,7 @@ template:
 
       - name: "HSBO House Energy 10-11 Active"
         unique_id: "hsbo_house_energy_template_10_11"
-        unit_of_measurement: "kWh"
+        unit_of_measurement: "W"
         state: >
           {% if now().hour == 10 %}
             {{ states('sensor.hsbo_house_consumption_power') }}
@@ -142,7 +142,7 @@ template:
 
       - name: "HSBO House Energy 11-12 Active"
         unique_id: "hsbo_house_energy_template_11_12"
-        unit_of_measurement: "kWh"
+        unit_of_measurement: "W"
         state: >
           {% if now().hour == 11 %}
             {{ states('sensor.hsbo_house_consumption_power') }}
@@ -152,7 +152,7 @@ template:
 
       - name: "HSBO House Energy 12-13 Active"
         unique_id: "hsbo_house_energy_template_12_13"
-        unit_of_measurement: "kWh"
+        unit_of_measurement: "W"
         state: >
           {% if now().hour == 12 %}
             {{ states('sensor.hsbo_house_consumption_power') }}
@@ -162,7 +162,7 @@ template:
 
       - name: "HSBO House Energy 13-14 Active"
         unique_id: "hsbo_house_energy_template_13_14"
-        unit_of_measurement: "kWh"
+        unit_of_measurement: "W"
         state: >
           {% if now().hour == 13 %}
             {{ states('sensor.hsbo_house_consumption_power') }}
@@ -172,7 +172,7 @@ template:
 
       - name: "HSBO House Energy 14-15 Active"
         unique_id: "hsbo_house_energy_template_14_15"
-        unit_of_measurement: "kWh"
+        unit_of_measurement: "W"
         state: >
           {% if now().hour == 14 %}
             {{ states('sensor.hsbo_house_consumption_power') }}
@@ -182,7 +182,7 @@ template:
 
       - name: "HSBO House Energy 15-16 Active"
         unique_id: "hsbo_house_energy_template_15_16"
-        unit_of_measurement: "kWh"
+        unit_of_measurement: "W"
         state: >
           {% if now().hour == 15 %}
             {{ states('sensor.hsbo_house_consumption_power') }}
@@ -192,7 +192,7 @@ template:
 
       - name: "HSBO House Energy 16-17 Active"
         unique_id: "hsbo_house_energy_template_16_17"
-        unit_of_measurement: "kWh"
+        unit_of_measurement: "W"
         state: >
           {% if now().hour == 16 %}
             {{ states('sensor.hsbo_house_consumption_power') }}
